@@ -1,6 +1,7 @@
 import React from "react";
-import { Row } from "react-bootstrap";
+import { Button, Card, Container, Row } from "react-bootstrap";
 import { Pokemon } from "../pokemons/Pokemon";
+import PokemonCard from "./PokemonCard";
 
 interface PokemonListProps {
   pokemons: Pokemon[];
@@ -8,11 +9,13 @@ interface PokemonListProps {
 
 function PokemonList({ pokemons }: PokemonListProps) {
   return (
-    <ul className="dark">
-      {pokemons.map((pokemon) => (
-        <li key={pokemon.id}>{pokemon.name}</li>
-      ))}
-    </ul>
+    <Container fluid className="dark-bg">
+      <Row xs={1} md={3} className="justify-content-around gap-4">
+        {pokemons.map((pokemon) => (
+          <PokemonCard pokemon={pokemon} />
+        ))}
+      </Row>
+    </Container>
   );
 }
 

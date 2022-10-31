@@ -1,14 +1,10 @@
 import React from "react";
 import "./App.css";
-import { Layout, PokemonList } from "./components";
+import { Layout, PokemonList, PokemonStatsModal } from "./components";
 import { MOCK_POKEMONS } from "./pokemons/MockPokemons";
 
 function App() {
-  return (
-    <Layout>
-      <PokemonList pokemons={MOCK_POKEMONS} />
-    </Layout>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/global.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { FaList } from "react-icons/fa";
 import { AiOutlineDash } from "react-icons/ai";
 import Header from "./Header";
+import PokemonStatsModal from "./PokemonStatsModal";
+import { MOCK_POKEMONS } from "../pokemons/MockPokemons";
 
 function HeroBanner() {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
     <Container fluid className="hero-banner">
       <Header />
@@ -36,6 +40,7 @@ function HeroBanner() {
               variant="outline-light"
               className="px-3 py-2 hero-btn d-flex gap-2 align-items-center mt-3"
               style={{ fontWeight: 700 }}
+              onClick={() => setShowModal(true)}
             >
               <FaList />
               More Details
@@ -55,6 +60,11 @@ function HeroBanner() {
           <Image src="images/mewtwo.png" fluid />
         </Col>
       </Row>
+      <PokemonStatsModal
+        pokemon={MOCK_POKEMONS[2]}
+        show={showModal}
+        onHide={() => setShowModal(false)}
+      />
     </Container>
   );
 }

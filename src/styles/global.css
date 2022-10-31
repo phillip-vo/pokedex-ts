@@ -54,3 +54,14 @@ h3 {
     position: relative;
     background-color: var(--softBlue);
 }
+
+.dark-bg {
+    background-color: var(--dark);
+}
+
+.modal-image {
+    position: absolute;
+    border: 1px solid white;
+    width: 300px;
+    opacity: 1;
+}

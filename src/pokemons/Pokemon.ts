@@ -4,6 +4,8 @@ export class Pokemon {
     height: number | undefined;
     weight: number | undefined;
     sprite: string = "";
+    types: [] | undefined;
+    stats: [] | undefined;
 
     constructor(initializer?: any) {
         if (!initializer) return;
@@ -12,5 +14,7 @@ export class Pokemon {
         if (initializer.height) this.height = initializer.height;
         if (initializer.weight) this.weight = initializer.weight;
         if (initializer.sprite) this.sprite = initializer.sprite;
+        if (initializer.types) this.types = initializer.types;
+        if (initializer.stats) this.stats = initializer.stats;
     }
 }
