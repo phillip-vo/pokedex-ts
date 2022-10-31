@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    /* Background gradient */
+    --softViolet: 	#af67e9;
+    --softBlue: #6565e7;
+
+    --white: #ffffff;
+    --dark: #24293F;
+    --psychic: #ff6675;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-weight: 700;
+    color: var(--white);
+}
+
+.dark {
+    color: var(--dark);
+}
+
+.white {
+    color: var(--white);
+}
+
+.psychic {
+    color: var(--white);
+    background-color: var(--psychic);
+}
+
+.icon:hover {
+    color: rgba(0, 0, 0, .2);
+    transform: scale(.90);
+}
+
+.hero-banner {
+    background-image: url("../assets/images/pokemon-pokeball-icon.png"),linear-gradient(var(--softViolet), var(--softBlue)); 
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+}
+
+.hero-btn:hover {
+    color: var(--softBlue)
+}
+
+.wave-container {
+    position: relative;
+    background-color: var(--softBlue);
+}
