@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/global.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import { FaList } from "react-icons/fa";
+import { BsLightningCharge } from "react-icons/bs";
 import { AiOutlineDash } from "react-icons/ai";
 import Header from "./Header";
 import PokemonStatsModal from "./PokemonStatsModal";
@@ -42,7 +42,7 @@ function HeroBanner() {
               style={{ fontWeight: 700 }}
               onClick={() => setShowModal(true)}
             >
-              <FaList />
+              <BsLightningCharge />
               More Details
             </Button>
             <div className="d-flex align-items-center m-5">

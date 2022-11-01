@@ -17,7 +17,7 @@ function Waves() {
         style={{ opacity: ".5" }}
       />
       <Wave
-        fill="#ff6675"
+        fill="#af67e9"
         paused={false}
         options={{
           height: 40,

@@ -7,7 +7,11 @@
 
     --white: #ffffff;
     --dark: #24293F;
+
+    /* Types Color */
+    --fire: #ff9741;
     --psychic: #ff6675;
+    
 }
 
 body {
@@ -55,13 +59,21 @@ h3 {
     background-color: var(--softBlue);
 }
 
-.dark-bg {
-    background-color: var(--dark);
+.pokemon-modal {
+    background-image: url("../assets/images/pokemon-pokeball-icon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.modal-bg {
+    background: rgb(36,41,63);
+    background: linear-gradient(0deg, rgba(36,41,63,1) 50%, var(--softBlue) 100%);
 }
 
 .modal-image {
     position: absolute;
-    border: 1px solid white;
-    width: 300px;
-    opacity: 1;
+    top: -30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

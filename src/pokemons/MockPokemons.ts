@@ -153,7 +153,7 @@ export const MOCK_POKEMONS = [
                   "name": "psychic",
                   "url": "https://pokeapi.co/api/v2/type/14/"
                 }
-              }
+            },
         ],
         stats: [
             {
