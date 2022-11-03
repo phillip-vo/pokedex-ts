@@ -61,7 +61,7 @@ function HeroBanner() {
         </Col>
       </Row>
       <PokemonStatsModal
-        pokemon={MOCK_POKEMONS[2]}
+        pokemon={MOCK_POKEMONS[3]}
         show={showModal}
         onHide={() => setShowModal(false)}
       />

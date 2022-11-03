@@ -4,7 +4,11 @@ import { Layout, PokemonList, PokemonStatsModal } from "./components";
 import { MOCK_POKEMONS } from "./pokemons/MockPokemons";
 
 function App() {
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <PokemonList pokemons={MOCK_POKEMONS} />
+    </Layout>
+  );
 }
 
 export default App;

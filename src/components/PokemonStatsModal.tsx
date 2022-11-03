@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Badge,
   Col,
   Container,
   Image,
@@ -11,6 +10,7 @@ import {
 import { FaWeight } from "react-icons/fa";
 import { GiBodyHeight } from "react-icons/gi";
 import { Pokemon } from "../pokemons/Pokemon";
+import { checkTypes } from "../utils/utils";
 
 interface PokemonStatsModalProps {
   pokemon: Pokemon;
@@ -63,16 +63,13 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
                     {name}
                   </h2>
                   <div className="d-flex justify-content-center gap-2 w-100">
-                    {types?.map((pokemonType) => (
-                      <div className="d-flex justify-content-center align-items-center badge gap-2">
+                    {types?.map((pokemonType, index) => (
+                      <div
+                        key={index}
+                        className="d-flex justify-content-center align-items-center badge gap-2"
+                      >
                         <Image
-                          src={
-                            pokemonType["type"]["name"] === "psychic"
-                              ? "images/psychic-type.png"
-                              : pokemonType["type"]["name"] === "fire"
-                              ? "images/fire-type.png"
-                              : ""
-                          }
+                          src={checkTypes(pokemonType["type"]["name"])}
                           fluid
                           width={25}
                         />{" "}
@@ -101,8 +98,8 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
             <Col sm={12}>
               <h4>Stats</h4>
               <Row>
-                {stats?.map((pokemonStat) => (
-                  <>
+                {stats?.map((pokemonStat, index) => (
+                  <div key={index} className="d-flex gap-2">
                     <Col
                       xs={6}
                       sm={6}
@@ -132,7 +129,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
                         }}
                       />
                     </Col>
-                  </>
+                  </div>
                 ))}
               </Row>
             </Col>

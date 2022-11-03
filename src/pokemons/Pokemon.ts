@@ -4,8 +4,8 @@ export class Pokemon {
     height: number | undefined;
     weight: number | undefined;
     sprite: string = "";
-    types: [] | undefined;
-    stats: [] | undefined;
+    types: any[] | undefined;
+    stats: any[] | undefined;
 
     constructor(initializer?: any) {
         if (!initializer) return;
