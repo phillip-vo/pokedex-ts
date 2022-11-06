@@ -1,28 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { Layout, PokemonList } from "./components";
+import { useQuery } from "react-query";
+import { fetchPokemons } from "./api/fetchApi";
+import Spinner from "react-bootstrap/Spinner";
+import { Alert } from "react-bootstrap";
 
 function App() {
-  const [allPokemons, setAllPokemons] = useState<any[]>([]);
+  const { data, error, isError, isLoading } = useQuery(
+    "pokemons",
+    fetchPokemons
+  );
 
-  const getPokemons = () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?&limit=100`)
-      .then((response) => response.json())
-      .then((data) => {
-        setAllPokemons(data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  if (isLoading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
 
-  useEffect(() => {
-    getPokemons();
-  }, []);
+  if (isError) {
+    return (
+      <Alert variant="danger">
+        <>Error! {error}</>
+      </Alert>
+    );
+  }
 
   return (
     <Layout>
-      <PokemonList allPokemons={allPokemons} />
+      <PokemonList allPokemons={data.results} />
     </Layout>
   );
 }

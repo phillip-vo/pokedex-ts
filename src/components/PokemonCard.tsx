@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card, Image } from "react-bootstrap";
 import { BsLightningCharge } from "react-icons/bs";
 import { FaWeight } from "react-icons/fa";
@@ -10,54 +10,32 @@ import {
 } from "../utils/utils";
 import PokemonStatsModal from "./PokemonStatsModal";
 import Spinner from "react-bootstrap/Spinner";
+import { useQuery } from "react-query";
+import { fetchPokemon } from "../api/fetchApi";
 
 interface PokemonCardProps {
+  pokemonName: string;
   url: string;
   searchType: string;
 }
 
 function PokemonCard(props: PokemonCardProps) {
-  const [pokemon, setPokemon] = useState<any>({
-    id: 0,
-    name: "",
-    height: 0,
-    weight: 0,
-    sprite: {
-      other: {
-        front_default: "",
-      },
-    },
-    types: [],
-    stats: [],
-  });
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [error, setError] = useState(undefined);
-  const [isLoading, setIsLoading] = useState(true);
 
-  const { url, searchType } = props;
+  const { pokemonName, url, searchType } = props;
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          setPokemon(data);
-          setIsLoading(false);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError(error);
-      });
-  }, []);
+  const { data, error, isError, isLoading } = useQuery(
+    `pokemon${pokemonName}`,
+    () => fetchPokemon(url)
+  );
 
-  console.log("Type prop passed from cards list: ", searchType);
+  const { id, name, height, weight, sprites, types } = data || {};
 
-  const typesList: any = pokemon?.types?.map((obj: any) => obj["type"]["name"]);
+  const typesList: any = types?.map((obj: any) => obj["type"]["name"]) || [];
 
   return (
     <>
-      {typesList.find((typeName: any) => typeName === searchType)?.length >
+      {typesList?.find((typeName: any) => typeName === searchType)?.length >
         0 && (
         <>
           <Card
@@ -72,7 +50,7 @@ function PokemonCard(props: PokemonCardProps) {
           >
             <div className="card-image">
               <Image
-                src={pokemon?.sprites?.other.home.front_default}
+                src={sprites?.other?.home?.front_default}
                 fluid
                 width={200}
               />
@@ -90,20 +68,17 @@ function PokemonCard(props: PokemonCardProps) {
                   <span className="visually-hidden">Loading...</span>
                 </Spinner>
               )}
-
               {!isLoading && (
                 <Card.Text className="mt-5">
-                  <strong className="mt-3">
-                    #{addLeadingZeros(pokemon.id, 3)}
-                  </strong>
+                  <strong className="mt-3">#{addLeadingZeros(id, 3)}</strong>
                   <h2
                     className="text-capitalize mt-0 mb-2"
                     style={{ fontWeight: 700 }}
                   >
-                    {pokemon.name}
+                    {name}
                   </h2>
                   <div className="d-flex justify-content-center gap-2 w-100">
-                    {pokemon?.types?.map((pokemonType: any, index: any) => (
+                    {types?.map((pokemonType: any, index: any) => (
                       <div
                         key={index}
                         className="d-flex justify-content-center align-items-center badge gap-2"
@@ -123,14 +98,14 @@ function PokemonCard(props: PokemonCardProps) {
                     <div className="d-flex flex-column align-items-center gap-2">
                       <div className="d-flex justify-content-center align-items-center gap-2">
                         <GiBodyHeight />
-                        <strong>{pokemon.height}</strong>
+                        <strong>{height}</strong>
                       </div>
                       <span>Height</span>
                     </div>
                     <div className="d-flex flex-column justify-content-center align-items-center gap-2">
                       <div className="d-flex justify-content-center align-items-center gap-2">
                         <FaWeight />
-                        <strong>{pokemon.weight}</strong>
+                        <strong>{weight}</strong>
                       </div>
                       Weight
                     </div>
@@ -148,7 +123,7 @@ function PokemonCard(props: PokemonCardProps) {
             </Card.Footer>
           </Card>
           <PokemonStatsModal
-            pokemon={pokemon}
+            pokemon={data}
             show={showModal}
             onHide={() => setShowModal(false)}
           />
@@ -168,7 +143,7 @@ function PokemonCard(props: PokemonCardProps) {
           >
             <div className="card-image">
               <Image
-                src={pokemon?.sprites?.other.home.front_default}
+                src={sprites?.other?.home?.front_default}
                 fluid
                 width={200}
               />
@@ -186,20 +161,17 @@ function PokemonCard(props: PokemonCardProps) {
                   <span className="visually-hidden">Loading...</span>
                 </Spinner>
               )}
-
               {!isLoading && (
                 <Card.Text className="mt-5">
-                  <strong className="mt-3">
-                    #{addLeadingZeros(pokemon.id, 3)}
-                  </strong>
+                  <strong className="mt-3">#{addLeadingZeros(id, 3)}</strong>
                   <h2
                     className="text-capitalize mt-0 mb-2"
                     style={{ fontWeight: 700 }}
                   >
-                    {pokemon.name}
+                    {name}
                   </h2>
                   <div className="d-flex justify-content-center gap-2 w-100">
-                    {pokemon?.types?.map((pokemonType: any, index: any) => (
+                    {types?.map((pokemonType: any, index: any) => (
                       <div
                         key={index}
                         className="d-flex justify-content-center align-items-center badge gap-2"
@@ -219,14 +191,14 @@ function PokemonCard(props: PokemonCardProps) {
                     <div className="d-flex flex-column align-items-center gap-2">
                       <div className="d-flex justify-content-center align-items-center gap-2">
                         <GiBodyHeight />
-                        <strong>{pokemon.height}</strong>
+                        <strong>{height}</strong>
                       </div>
                       <span>Height</span>
                     </div>
                     <div className="d-flex flex-column justify-content-center align-items-center gap-2">
                       <div className="d-flex justify-content-center align-items-center gap-2">
                         <FaWeight />
-                        <strong>{pokemon.weight}</strong>
+                        <strong>{weight}</strong>
                       </div>
                       Weight
                     </div>
@@ -244,7 +216,7 @@ function PokemonCard(props: PokemonCardProps) {
             </Card.Footer>
           </Card>
           <PokemonStatsModal
-            pokemon={pokemon}
+            pokemon={data}
             show={showModal}
             onHide={() => setShowModal(false)}
           />

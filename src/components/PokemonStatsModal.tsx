@@ -23,10 +23,11 @@ interface PokemonStatsModalProps {
 }
 
 function PokemonStatsModal(props: PokemonStatsModalProps) {
-  const { id, name, height, weight, sprites, types, stats } = props.pokemon;
+  const { id, name, height, weight, sprites, types, stats } =
+    props.pokemon || {};
   const { show, onHide } = props;
 
-  const typesList: any = types?.map((obj: any) => obj["type"]["name"]);
+  const typesList: any = types?.map((obj: any) => obj["type"]["name"]) || [];
 
   return (
     <Modal
@@ -61,7 +62,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
               <Row>
                 <Col sm={12} lg={6} className="text-center">
                   <Image
-                    src={sprites?.other.home.front_default}
+                    src={sprites?.other?.home?.front_default}
                     fluid
                     width={300}
                   />
@@ -71,7 +72,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
                   lg={6}
                   className="d-flex flex-column justify-content-center align-items-center"
                 >
-                  <strong className="mt-3">#{id}</strong>
+                  <strong className="mt-3">#{addLeadingZeros(id, 3)}</strong>
                   <h2
                     className="text-capitalize mt-0 mb-2"
                     style={{ fontWeight: 700 }}

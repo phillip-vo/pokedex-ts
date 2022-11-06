@@ -70,6 +70,7 @@ function PokemonList({ allPokemons }: PokemonListProps) {
           .map((pokemon: any) => (
             <PokemonCard
               key={pokemon.name}
+              pokemonName={pokemon.name}
               url={pokemon.url}
               searchType={pokemonType}
             />
