@@ -38,6 +38,8 @@ export function getTypeBackgroundColor(type: string) {
       return "#5b5466";
     case "steel":
       return "#5a8ea2";
+    case "fairy":
+      return "#fb89eb";
     default:
       break;
   }
@@ -79,6 +81,8 @@ export function checkTypes(type: string) {
         return "images/dark-type.png";
       case "steel":
         return "images/steel-type.png";
+      case "fairy":
+        return "images/fairy-type.png";
       default:
         break;
     }

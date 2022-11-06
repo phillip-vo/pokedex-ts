@@ -207,11 +207,156 @@ export const MOCK_POKEMONS = [
         ]
     }),
     new Pokemon({
+        id: 134,
+        name: "vaporeon",
+        height: 10,
+        weight: 290,
+        sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/134.png",
+        types: [
+          {
+            "slot": 1,
+            "type": {
+              "name": "water",
+              "url": "https://pokeapi.co/api/v2/type/11/"
+            }
+          }
+        ],
+        stats: [
+          {
+            "base_stat": 130,
+            "effort": 2,
+            "stat": {
+              "name": "hp",
+              "url": "https://pokeapi.co/api/v2/stat/1/"
+            }
+          },
+          {
+            "base_stat": 65,
+            "effort": 0,
+            "stat": {
+              "name": "attack",
+              "url": "https://pokeapi.co/api/v2/stat/2/"
+            }
+          },
+          {
+            "base_stat": 60,
+            "effort": 0,
+            "stat": {
+              "name": "defense",
+              "url": "https://pokeapi.co/api/v2/stat/3/"
+            }
+          },
+          {
+            "base_stat": 110,
+            "effort": 0,
+            "stat": {
+              "name": "special-attack",
+              "url": "https://pokeapi.co/api/v2/stat/4/"
+            }
+          },
+          {
+            "base_stat": 95,
+            "effort": 0,
+            "stat": {
+              "name": "special-defense",
+              "url": "https://pokeapi.co/api/v2/stat/5/"
+            }
+          },
+          {
+            "base_stat": 65,
+            "effort": 0,
+            "stat": {
+              "name": "speed",
+              "url": "https://pokeapi.co/api/v2/stat/6/"
+            }
+          }
+        ]
+    }),
+    new Pokemon({
+        id: 145,
+        name: "zapdos",
+        height: 16,
+        weight: 526,
+        sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/145.png",
+        types: [
+          {
+            "slot": 1,
+            "type": {
+              "name": "electric",
+              "url": "https://pokeapi.co/api/v2/type/13/"
+            }
+          },
+          {
+            "slot": 2,
+            "type": {
+              "name": "flying",
+              "url": "https://pokeapi.co/api/v2/type/3/"
+            }
+          }
+        ],
+        stats: [
+          {
+            "base_stat": 90,
+            "effort": 0,
+            "stat": {
+              "name": "hp",
+              "url": "https://pokeapi.co/api/v2/stat/1/"
+            }
+          },
+          {
+            "base_stat": 90,
+            "effort": 0,
+            "stat": {
+              "name": "attack",
+              "url": "https://pokeapi.co/api/v2/stat/2/"
+            }
+          },
+          {
+            "base_stat": 85,
+            "effort": 0,
+            "stat": {
+              "name": "defense",
+              "url": "https://pokeapi.co/api/v2/stat/3/"
+            }
+          },
+          {
+            "base_stat": 125,
+            "effort": 3,
+            "stat": {
+              "name": "special-attack",
+              "url": "https://pokeapi.co/api/v2/stat/4/"
+            }
+          },
+          {
+            "base_stat": 90,
+            "effort": 0,
+            "stat": {
+              "name": "special-defense",
+              "url": "https://pokeapi.co/api/v2/stat/5/"
+            }
+          },
+          {
+            "base_stat": 100,
+            "effort": 0,
+            "stat": {
+              "name": "speed",
+              "url": "https://pokeapi.co/api/v2/stat/6/"
+            }
+          }
+        ]
+    }),
+    new Pokemon({
         id: 150,
         name: "mewtwo",
         height: 20,
         weight: 1220,
-        sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/150.png",
+        sprites: {  
+          other: {
+            home: {
+              front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/150.png",
+            },
+          },           
+        },
         types: [
             {
                 "slot": 1,

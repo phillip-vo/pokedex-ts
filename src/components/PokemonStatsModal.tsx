@@ -10,17 +10,23 @@ import {
 import { FaWeight } from "react-icons/fa";
 import { GiBodyHeight } from "react-icons/gi";
 import { Pokemon } from "../pokemons/Pokemon";
-import { checkTypes } from "../utils/utils";
+import {
+  checkTypes,
+  addLeadingZeros,
+  getTypeBackgroundColor,
+} from "../utils/utils";
 
 interface PokemonStatsModalProps {
-  pokemon: Pokemon;
+  pokemon: any;
   show: boolean;
   onHide: () => void;
 }
 
 function PokemonStatsModal(props: PokemonStatsModalProps) {
-  const { id, name, height, weight, sprite, types, stats } = props.pokemon;
+  const { id, name, height, weight, sprites, types, stats } = props.pokemon;
   const { show, onHide } = props;
+
+  const typesList: any = types?.map((obj: any) => obj["type"]["name"]);
 
   return (
     <Modal
@@ -34,7 +40,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
         closeButton
         closeVariant="white"
         className="border-0"
-        style={{ backgroundColor: "#6565e7" }}
+        style={{ backgroundColor: getTypeBackgroundColor(typesList[0]) + "90" }}
       >
         <Image
           src="images/pokemon-pokeball-icon-19.png"
@@ -42,13 +48,23 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
           className="opacity-50"
         />
       </Modal.Header>
-      <Modal.Body className="modal-bg">
+      <Modal.Body
+        style={{
+          backgroundImage: `linear-gradient(0deg, rgba(36,41,63,1) 50%, ${getTypeBackgroundColor(
+            typesList[0]
+          )}90 100%)`,
+        }}
+      >
         <Container>
           <Row>
             <Col sm={12}>
               <Row>
                 <Col sm={12} lg={6} className="text-center">
-                  <Image src={sprite} fluid width={300} />
+                  <Image
+                    src={sprites?.other.home.front_default}
+                    fluid
+                    width={300}
+                  />
                 </Col>
                 <Col
                   sm={12}
@@ -63,7 +79,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
                     {name}
                   </h2>
                   <div className="d-flex justify-content-center gap-2 w-100">
-                    {types?.map((pokemonType, index) => (
+                    {types?.map((pokemonType: any, index: any) => (
                       <div
                         key={index}
                         className="d-flex justify-content-center align-items-center badge gap-2"
@@ -98,7 +114,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
             <Col sm={12}>
               <h4>Stats</h4>
               <Row>
-                {stats?.map((pokemonStat, index) => (
+                {stats?.map((pokemonStat: any, index: any) => (
                   <div key={index} className="d-flex gap-2">
                     <Col
                       xs={6}
