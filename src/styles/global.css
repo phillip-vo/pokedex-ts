@@ -123,3 +123,19 @@ h3 {
     transform: scale(.95);
     opacity: .9;
 }
+
+.name-container {
+    position: relative;
+}
+
+.name-input {
+    height: 3rem;
+    color: var(--white);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translate(-50%, -50%);
+}
