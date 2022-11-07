@@ -10,7 +10,6 @@
 
     /* Types Color */
     --bug: #83c300;
-    --dark: #5b5466;
     --dragon: #006fc9;
     --electric: #fbd100;
     --fairy: #fb89eb;
@@ -81,6 +80,17 @@ h3 {
     background-size: contain;
     background-position: center;
 }
+
+/* .modal-blur-bg {
+    height: 100%;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
 
 .modal-bg {
     background: rgb(36,41,63);

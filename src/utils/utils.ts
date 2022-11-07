@@ -34,8 +34,6 @@ export function getTypeBackgroundColor(type: string) {
       return "#4c6ab2";
     case "dragon":
       return "#006fc9";
-    case "dark":
-      return "#5b5466";
     case "steel":
       return "#5a8ea2";
     case "fairy":
@@ -48,41 +46,80 @@ export function getTypeBackgroundColor(type: string) {
 export function checkTypes(type: string) {
     switch (type) {
       case "fire":
-        return "images/fire-type.png";
+        return "images/types/fire-type.png";
       case "grass":
-        return "images/grass-type.png";
+        return "images/types/grass-type.png";
       case "psychic":
-        return "images/psychic-type.png";
+        return "images/types/psychic-type.png";
       case "poison":
-        return "images/poison-type.png";
+        return "images/types/poison-type.png";
       case "normal":
-        return "images/normal-type.png";
+        return "images/types/normal-type.png";
       case "water":
-        return "images/water-type.png";
+        return "images/types/water-type.png";
       case "electric":
-        return "images/electric-type.png";
+        return "images/types/electric-type.png";
       case "ice":
-        return "images/ice-type.png";
+        return "images/types/ice-type.png";
       case "fighting":
-        return "images/fighting-type.png";
+        return "images/types/fighting-type.png";
       case "ground":
-        return "images/ground-type.png";
+        return "images/types/ground-type.png";
       case "flying":
-        return "images/flying-type.png";
+        return "images/types/flying-type.png";
       case "bug":
-        return "images/bug-type.png";
+        return "images/types/bug-type.png";
       case "rock":
-        return "images/rock-type.png";
+        return "images/types/rock-type.png";
       case "ghost":
-        return "images/ghost-type.png";
+        return "images/types/ghost-type.png";
       case "dragon":
-        return "images/dragon-type.png";
-      case "dark":
-        return "images/dark-type.png";
+        return "images/types/dragon-type.png";
       case "steel":
-        return "images/steel-type.png";
+        return "images/types/steel-type.png";
       case "fairy":
-        return "images/fairy-type.png";
+        return "images/types/fairy-type.png";
+      default:
+        break;
+    }
+  }
+
+export function getPokeballColor(type: string) {
+    switch (type) {
+      case "fire":
+        return "images/pokeballs/pokeball-fire.png";
+      case "grass":
+        return "images/pokeballs/pokeball-grass.png";
+      case "psychic":
+        return "images/pokeballs/pokeball-psychic.png";
+      case "poison":
+        return "images/pokeballs/pokeball-poison.png";
+      case "normal":
+        return "images/pokeballs/pokeball-normal.png";
+      case "water":
+        return "images/pokeballs/pokeball-water.png";
+      case "electric":
+        return "images/pokeballs/pokeball-electric.png";
+      case "ice":
+        return "images/pokeballs/pokeball-ice.png";
+      case "fighting":
+        return "images/pokeballs/pokeball-fighting.png";
+      case "ground":
+        return "images/pokeballs/pokeball-ground.png";
+      case "flying":
+        return "images/pokeballs/pokeball-flying.png";
+      case "bug":
+        return "images/pokeballs/pokeball-bug.png";
+      case "rock":
+        return "images/pokeballs/pokeball-rock.png";
+      case "ghost":
+        return "images/pokeballs/pokeball-ghost.png";
+      case "dragon":
+        return "images/pokeballs/pokeball-dragon.png";
+      case "steel":
+        return "images/pokeballs/pokeball-steel.png";
+      case "fairy":
+        return "images/pokeballs/pokeball-fairy.png";
       default:
         break;
     }
