@@ -1,60 +1,64 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import { Button, Container, Row, Carousel, Col, Image } from "react-bootstrap";
+import { checkTypes } from "../utils/utils";
 import PokemonCard from "./PokemonCard";
+import TypeCarousel from "./TypeCarousel";
 
 interface PokemonListProps {
   allPokemons: any[];
 }
 
+const types = [
+  "bug",
+  "dragon",
+  "electric",
+  "fairy",
+  "fighting",
+  "fire",
+  "flying",
+  "ghost",
+  "grass",
+  "ground",
+  "ice",
+  "normal",
+  "poison",
+  "psychic",
+  "rock",
+  "steel",
+  "water",
+];
+
 function PokemonList({ allPokemons }: PokemonListProps) {
-  const pokemons = allPokemons;
-  const [offset, setOffset] = useState<number>(0);
-  const [loadNumber, setLoadNumber] = useState<number>(6);
+  const pokemons = allPokemons || [];
+
   const [pokemonName, setPokemonName] = useState<string>("");
   const [pokemonType, setPokemonType] = useState<string>("");
 
-  // const getNextOffset = () => {
-  //   return offset + loadNumber;
-  // };
-
-  // const getPreviousOffset = () => {
-  //   if (offset > loadNumber) {
-  //     return offset - loadNumber;
-  //   } else {
-  //     return 0;
-  //   }
-  // };
-
-  // const handlePreviousPage = () => {
-  //   const prevOffSet = getPreviousOffset();
-  //   setOffset(prevOffSet);
-  //   alert("need to implement");
-  // };
-
-  // const handleNextPage = () => {
-  //   const newOffSet = getNextOffset();
-  //   setOffset(newOffSet);
-  //   alert("need to implement");
-  // };
-
   return (
     <Container fluid className="dark-bg pb-5" style={{ paddingTop: "5rem" }}>
-      <div className="d-flex justify-content-center align-items-center border border-white m-5">
-        <span>Search by name:</span>
-        <input
-          type="text"
-          placeholder="name"
-          value={pokemonName}
-          onChange={(e) => setPokemonName(e.target.value)}
-        />
-        <span>Search by type:</span>
-        <input
-          type="text"
-          placeholder="type"
-          value={pokemonType}
-          onChange={(e) => setPokemonType(e.target.value)}
-        />
-      </div>
+      <Row className="border border-white m-5">
+        <Col lg={4} className="d-flex flex-column gap-3 border border-white">
+          <span className="" style={{ fontWeight: 700, fontSize: "1.5rem" }}>
+            Search by type:
+          </span>
+          <TypeCarousel setPokemonType={setPokemonType} />
+          {/* <div className="d-flex gap-2 flex-wrap border border-white">
+            {types.map((type) => (
+              <Image
+                src={checkTypes(type)}
+                width={50}
+                onClick={() => setPokemonType(type)}
+                className="type-icons"
+              />
+            ))}
+          </div> */}
+          <div className="d-flex m-2">
+            <Button variant="outline-light" onClick={() => setPokemonType("")}>
+              Reset Types
+            </Button>
+          </div>
+        </Col>
+      </Row>
       <Row xs={1} md={3} className="justify-content-center gap-5">
         {pokemons
           .filter((data) => {
@@ -76,12 +80,6 @@ function PokemonList({ allPokemons }: PokemonListProps) {
             />
           ))}
       </Row>
-      {/* <Button variant="outline-primary" onClick={handlePreviousPage}>
-        Previous Page
-      </Button>
-      <Button variant="outline-primary" onClick={handleNextPage}>
-        Next Page
-      </Button> */}
     </Container>
   );
 }

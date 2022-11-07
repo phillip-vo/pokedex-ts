@@ -5,6 +5,8 @@ import { useQuery } from "react-query";
 import { fetchPokemons } from "./api/fetchApi";
 import Spinner from "react-bootstrap/Spinner";
 import { Alert } from "react-bootstrap";
+import PaginatedList from "./components/PaginatedList";
+import { Pokemon } from "./pokemons/Pokemon";
 
 function App() {
   const { data, error, isError, isLoading } = useQuery(

@@ -114,3 +114,12 @@ h3 {
 .card-footer:hover {
     opacity: .7;
 }
+
+.type-icons {
+    cursor: pointer;
+}
+
+.type-icons:hover {
+    transform: scale(.95);
+    opacity: .9;
+}
