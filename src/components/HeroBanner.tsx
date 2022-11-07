@@ -20,7 +20,8 @@ function HeroBanner() {
             <h3>#150</h3>
             <h4>
               <span className="d-flex align-items-center badge psychic">
-                <Image src="images/psychic-type.png" fluid width={25} /> Psychic
+                <Image src="images/types/psychic-type.png" fluid width={25} />{" "}
+                Psychic
               </span>
             </h4>
             <h1
