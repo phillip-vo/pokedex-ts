@@ -20,7 +20,7 @@ function TypeCarousel({ setPokemonType }: TypeCarouselProps) {
       <Carousel.Item>
         <div className="d-flex justify-content-center gap-3">
           {typeSet1.map((type) => (
-            <Figure>
+            <Figure key={type}>
               <Figure.Image
                 key={type}
                 src={checkTypes(type)}
@@ -38,7 +38,7 @@ function TypeCarousel({ setPokemonType }: TypeCarouselProps) {
       <Carousel.Item>
         <div className="d-flex justify-content-center gap-3">
           {typeSet2.map((type) => (
-            <Figure>
+            <Figure key={type}>
               <Figure.Image
                 key={type}
                 src={checkTypes(type)}
@@ -56,7 +56,7 @@ function TypeCarousel({ setPokemonType }: TypeCarouselProps) {
       <Carousel.Item>
         <div className="d-flex justify-content-center gap-3">
           {typeSet3.map((type) => (
-            <Figure>
+            <Figure key={type}>
               <Figure.Image
                 key={type}
                 src={checkTypes(type)}
@@ -74,7 +74,7 @@ function TypeCarousel({ setPokemonType }: TypeCarouselProps) {
       <Carousel.Item>
         <div className="d-flex justify-content-center gap-3">
           {typeSet4.map((type) => (
-            <Figure>
+            <Figure key={type}>
               <Figure.Image
                 key={type}
                 src={checkTypes(type)}

@@ -346,6 +346,24 @@ export const MOCK_POKEMONS = [
         ]
     }),
     new Pokemon({
+        abilities: [
+          {
+            "ability": {
+              "name": "pressure",
+              "url": "https://pokeapi.co/api/v2/ability/46/"
+            },
+            "is_hidden": false,
+            "slot": 1
+          },
+          {
+            "ability": {
+              "name": "unnerve",
+              "url": "https://pokeapi.co/api/v2/ability/127/"
+            },
+            "is_hidden": true,
+            "slot": 3
+          }
+        ],
         id: 150,
         name: "mewtwo",
         height: 20,

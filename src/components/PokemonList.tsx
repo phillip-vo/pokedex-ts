@@ -18,7 +18,7 @@ function PokemonList({ allPokemons }: PokemonListProps) {
   return (
     <Container fluid className="dark-bg pb-5" style={{ paddingTop: "5rem" }}>
       <Row className="d-flex  justify-content-around m-5">
-        <Col lg={4}>
+        <Col sm={12} md={12} lg={6} xl={4}>
           <div className="d-flex flex-column gap-3">
             <span style={{ fontWeight: 700, fontSize: "1.5rem" }}>
               Search by type:
@@ -35,7 +35,7 @@ function PokemonList({ allPokemons }: PokemonListProps) {
             </div>
           </div>
         </Col>
-        <Col lg={4}>
+        <Col sm={12} md={12} lg={6} xl={4}>
           <div className="d-flex  flex-column gap-3">
             <span style={{ fontWeight: 700, fontSize: "1.5rem" }}>
               Search by name:
@@ -49,6 +49,13 @@ function PokemonList({ allPokemons }: PokemonListProps) {
                 className="border border-light border-2 rounded bg-transparent w-100 name-input"
               />
               <FaSearch className="search-icon" />
+              <Button
+                variant="outline-light"
+                className="rounded-circle"
+                onClick={() => setPokemonType("")}
+              >
+                <IoMdRefresh />
+              </Button>
             </div>
           </div>
         </Col>

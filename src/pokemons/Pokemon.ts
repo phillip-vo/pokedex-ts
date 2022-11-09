@@ -1,4 +1,5 @@
 export class Pokemon {
+    abilities: any[] | undefined;
     id: number | undefined;
     name: string = "";
     // base_experience: number | undefined;
@@ -19,6 +20,7 @@ export class Pokemon {
 
     constructor(initializer?: any) {
         if (!initializer) return;
+        if (initializer.abilities) this.abilities = initializer.abilities;
         if (initializer.id) this.id = initializer.id;
         if (initializer.name) this.name = initializer.name;
         if (initializer.height) this.height = initializer.height;

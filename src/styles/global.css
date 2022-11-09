@@ -146,6 +146,10 @@ h3 {
 .search-icon {
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: 1px;
     transform: translate(-50%, -50%);
+}
+
+.bold {
+    font-weight: 700;
 }
