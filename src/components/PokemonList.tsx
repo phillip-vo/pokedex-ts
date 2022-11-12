@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import PokemonCard from "./PokemonCard";
 import TypeCarousel from "./TypeCarousel";
@@ -14,6 +14,11 @@ function PokemonList({ allPokemons }: PokemonListProps) {
 
   const [pokemonName, setPokemonName] = useState<string>("");
   const [pokemonType, setPokemonType] = useState<string>("");
+
+  const handleNameSearch = (e: any) => {
+    setPokemonType("");
+    setPokemonName(e.target.value);
+  };
 
   return (
     <Container fluid className="dark-bg pb-5" style={{ paddingTop: "5rem" }}>
@@ -36,7 +41,7 @@ function PokemonList({ allPokemons }: PokemonListProps) {
           </div>
         </Col>
         <Col sm={12} md={12} lg={6} xl={4}>
-          <div className="d-flex  flex-column gap-3">
+          <div className="d-flex flex-column gap-3">
             <span style={{ fontWeight: 700, fontSize: "1.5rem" }}>
               Search by name:
             </span>
@@ -45,14 +50,16 @@ function PokemonList({ allPokemons }: PokemonListProps) {
                 type="text"
                 placeholder="Name"
                 value={pokemonName}
-                onChange={(e) => setPokemonName(e.target.value)}
+                onChange={handleNameSearch}
                 className="border border-light border-2 rounded bg-transparent w-100 name-input"
               />
               <FaSearch className="search-icon" />
+            </div>
+            <div className="d-flex justify-content-start mt-5 p-3">
               <Button
                 variant="outline-light"
                 className="rounded-circle"
-                onClick={() => setPokemonType("")}
+                onClick={() => setPokemonName("")}
               >
                 <IoMdRefresh />
               </Button>

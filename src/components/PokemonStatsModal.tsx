@@ -51,7 +51,7 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
                   <Col
                     sm={12}
                     lg={6}
-                    className="d-flex flex-column align-items-center border border-white"
+                    className="d-flex flex-column align-items-center"
                   >
                     <strong className="mt-3">#{addLeadingZeros(id, 3)}</strong>
                     <h2
@@ -77,36 +77,36 @@ function PokemonStatsModal(props: PokemonStatsModalProps) {
                         </div>
                       ))}
                     </div>
-                    <div className="d-flex justify-content-center gap-5 mt-3">
+                    <div className="d-flex justify-content-center gap-5 mt-3 w-100">
                       <div className="d-flex align-items-center gap-2">
                         <GiBodyHeight />
                         Height: <strong>{height}</strong>
                       </div>
-                      <div className="d-flex justify-content-center align-items-center gap-2">
+                      <div className="d-flex align-items-center gap-2">
                         <FaWeight />
                         Weight: <strong>{weight}</strong>
                       </div>
                     </div>
-                    <div className="d-flex justify-content-around w-100 m-2">
+                    <div className="d-flex flex-column align-items-center w-100 m-3">
                       <span className="d-flex align-items-center gap-2">
                         <GiBoltSpellCast /> Abilities:
                       </span>
-
-                      {abilities?.map((obj: any) => (
-                        <span
-                          key={obj["ability"]["name"]}
-                          className="text-capitalize bold"
-                        >
-                          {obj["ability"]["name"]}
-                        </span>
-                      ))}
+                      <div className="d-flex gap-3  mt-2 flex-wrap">
+                        {abilities?.map((obj: any) => (
+                          <span
+                            key={obj["ability"]["name"]}
+                            className="text-capitalize bold"
+                          >
+                            {obj["ability"]["name"]}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <div className="d-flex flex-column justify-content-around w-100">
-                      <span className="d-flex align-items-center gap-2">
+                    <div className="d-flex flex-column align-items-center gap-2 w-100">
+                      <span className="d-flex gap-2">
                         <GiAxeSwing /> Moves:
                       </span>
-
-                      <div className="d-flex justify-content-between m-2">
+                      <div className="d-flex gap-3 justify-content-center flex-wrap">
                         {moves?.length > 4
                           ? moves?.slice(0, 4).map((obj: any) => (
                               <span

@@ -367,6 +367,32 @@ export const MOCK_POKEMONS = [
         id: 150,
         name: "mewtwo",
         height: 20,
+        moves: [
+          {
+            move: {
+              name: "mega-punch",
+              url: "https://pokeapi.co/api/v2/move/5/"
+            },
+          },
+          {
+            move: {
+              name: "pay-day",
+              url: "https://pokeapi.co/api/v2/move/6/"
+            },
+          },
+          {
+            move: {
+              name: "fire-punch",
+              url: "https://pokeapi.co/api/v2/move/7/"
+            },
+          },
+          {
+            move: {
+              name: "ice-punch",
+              url: "https://pokeapi.co/api/v2/move/8/"
+            },
+          }
+        ],
         weight: 1220,
         sprites: {  
           other: {
