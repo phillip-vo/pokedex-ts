@@ -5,6 +5,8 @@ import HeroBanner from "./HeroBanner";
 import Footer from "./Footer";
 import { Container } from "react-bootstrap";
 import Waves from "./Waves";
+import { fetchPokemon, fetchPokemons } from "../api/fetchApi";
+import { useQuery } from "react-query";
 
 interface LayoutProps {
   children?: ReactNode;
