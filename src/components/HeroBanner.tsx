@@ -7,14 +7,11 @@ import { AiOutlineDash } from "react-icons/ai";
 import Header from "./Header";
 import PokemonStatsModal from "./PokemonStatsModal";
 import { MOCK_POKEMONS } from "../pokemons/MockPokemons";
-import { fetchPokemon, fetchPokemons } from "../api/fetchApi";
-import { StringDecoder } from "string_decoder";
-import { useQuery } from "react-query";
 
 function HeroBanner() {
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  console.log(JSON.stringify(MOCK_POKEMONS[6], null, " "));
+  console.log(JSON.stringify(MOCK_POKEMONS[5], null, " "));
 
   return (
     <Container fluid className="hero-banner">

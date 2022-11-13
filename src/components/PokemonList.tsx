@@ -22,7 +22,7 @@ function PokemonList({ allPokemons }: PokemonListProps) {
 
   return (
     <Container fluid className="dark-bg pb-5" style={{ paddingTop: "5rem" }}>
-      <Row className="d-flex  justify-content-around m-5">
+      <Row className="d-flex justify-content-around m-5">
         <Col sm={12} md={12} lg={6} xl={4}>
           <div className="d-flex flex-column gap-3">
             <span style={{ fontWeight: 700, fontSize: "1.5rem" }}>
